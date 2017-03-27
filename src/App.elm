@@ -3,7 +3,7 @@ module App exposing (..)
 
 import Html exposing (Html, div, text, button, program)
 
-import Components.Expandable as Expandable
+import Components.Expandable as Exp
 
 
 -- MODEL
@@ -32,10 +32,9 @@ type Msg = Expand
 
 view : Model -> Html Msg
 view model =
-    Expandable.render 
-        { expandMsg = Expand, collapsMsg = Collaps, expanded = model }
+    Exp.render 
+        [ Exp.onExpand Expand, Exp.onCollaps Collaps, Exp.expanded model ]
         [ text "Widget 42" ]
-
 
 
 -- UPDATE
